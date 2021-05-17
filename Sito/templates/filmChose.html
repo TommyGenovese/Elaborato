@@ -10,6 +10,11 @@
       body{
         background-color: beige;
       }
+      #title{
+        font-size: 22px;
+        color: rgb(10, 10, 134);
+      }
+      
     </style>
 
   </head>
@@ -23,9 +28,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" style="font-size: 30px;"  href="registrazione.html">Home</a>
-                    <a class="nav-link active" style="font-size: 30px;" href="" aria-current="page">Films</a>
-                    <a class="nav-link" style="font-size: 30px;" href="music.html">Music</a>
+                  <a class="nav-link" style="font-size: 30px;" aria-current="page" href="#">Flight</a>
+                  <a class="nav-link active" style="font-size: 30px;" href="" onclick="RegBefFilm()">Films</a>
+                  <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefMusic()">Music</a>
+                  <a class="nav-link" style="font-size: 30px;" aria-current="page" href="#">Login</a>
                 </div>
                 
             </div>
@@ -33,39 +39,41 @@
     </nav>
 
     <div class="container">
-      <br><br>
-      <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-          </div>
+      <br><br> 
+      <h3>You can chose 3 films from this list:</h3>
+      <br>
+      <script>
+        var films=0;
+        var count=0;
+        filmini = new Array();
+        for(i=0; i<30; i++){
+          filmini[i] =0;
+        }
+      </script>
+      <form>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          {% for i in films%}
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" id="title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{i}}" aria-expanded="false" aria-controls="flush-collapse{{i}}">
+                  <b>{{films[i][1]}}</b>
+                </button>
+              </h2>
+              <div id="flush-collapse{{i}}" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                  <b>Regista:</b> {{films[i][3]}}<br>
+                  <b>Data d'uscita:</b> {{films[i][6]}}<br>
+                  <b>Valutazione:</b> {{films[i][5]}}<br>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="Selezionefilm()">
+                    <label class="form-check-label" for="exampleCheck1">Chose</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Film 2
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Film 3
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <button type="submit" class="btn btn-primary">Done</button>
+    </form>
   </body>
 </html>

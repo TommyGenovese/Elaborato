@@ -19,17 +19,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefFlight()">Flight</a>
+                    <a class="nav-link active" style="font-size: 30px;" aria-current="page" href="#">Flight</a>
                     <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefFilm()">Films</a>
                     <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefMusic()">Music</a>
-                    <a class="nav-link active" style="font-size: 30px;" href="">Login</a>
+                    <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefLogin()">Login</a>
                 </div>
                 <script>
                     function RegBefFilm(){
                         alert("Attention!\nTo access the selection of films you must first register your ticket");
                     }
-                    function RegBefFlight(){
-                        alert("Attention!\nTo select your flight' seat you must first Sing In/Up");
+                    function RegBefLogin(){
+                        alert("Attention!\nYou are already singed in");
                     }
                     function RegBefMusic(){
                         alert("Attention!\nTo access the music category you must first register your ticket");
@@ -40,19 +40,28 @@
     </nav>
 
     <div class="container">
-        <br><br>
-        <div class="container-sm">
+        <br>
+        <div class="container-sm" style="align-self: center;">
+            <p style="font-size: 25px; color: rgb(63, 124, 236);" class="mb-5">{{Saluto}}{{nome}}</p>
             <form class="was-validated" method="POST">
-                <div class="col-md-5 mb-4">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" aria-describedby="emailHelp" class="form-control is-invalid" id="validationTextarea" placeholder="example@example.com" name="email" required>
+
+                <div class="col-md-4 mb-4">
+                    <label for="validationTextarea" class="form-label">Flight number</label>
+                    <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Insert your flight number" name="NumVolo" required></textarea>
                 </div>
-                <div class="col-md-5 mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control is-invalid" id="validationTextarea" placeholder="Create a password" name="pwd" required>
+                <div class="col-md-4 mb-4">
+                    <label for="validationTextarea" class="form-label">Seat</label>
+                    <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Insert your seat number" name="NumPosto" required></textarea>
+                    
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label for="validationTextarea" class="form-label">Destination</label>
+                    <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Required destiantion" name="Destinazione" required></textarea>
+                    
                     <div id="infoSeat" class="form-text">We will never share your data</div>
                 </div>
-                <a href="{{url_for('seat')}}" class="btn btn-primary">Sing In/Up</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
             </form>
         </div>
     </div>
