@@ -10,6 +10,9 @@
     </style>
   </head>
   <body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
@@ -19,17 +22,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" style="font-size: 30px;" href="Seat.html">Flight</a>
+                    <a class="nav-link" style="font-size: 30px;" onclick="RegBefFlight()">Flight</a>
                     <a class="nav-link" style="font-size: 30px;" onclick="RegBefFilm()">Films</a>
                     <a class="nav-link" style="font-size: 30px;" onclick="RegBefMusic()">Music</a>
-                    <a class="nav-link" style="font-size: 30px;" onclick="RegBefLogin()">Login</a>
+                    <a class="nav-link" style="font-size: 30px;">Login</a>
                 </div>
                 <script>
                     function RegBefFilm(){
                         alert("Attention!\nTo access the selection of films you must first register your ticket");
                     }
-                    function RegBefLogin(){
-                        alert("Attention!\nYou are already singed in");
+                    function RegBefFlight(){
+                        alert("Attention!\nTo select your flight' seat you must first Sing In/Up");
                     }
                     function RegBefMusic(){
                         alert("Attention!\nTo access the music category you must first register your ticket");
@@ -39,32 +42,12 @@
         </div>
     </nav>
 
-    <div class="container">
-        <br>
-        <div class="container-sm" style="align-self: center;">
-            <p style="font-size: 25px; color: rgb(63, 124, 236);" class="mb-5">{{Saluto}}{{nome}}</p>
-            <form class="was-validated" method="POST">
-
-                <div class="col-md-4 mb-4">
-                    <label for="validationTextarea" class="form-label">Flight number</label>
-                    <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Insert your flight number" name="NumVolo" required></textarea>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <label for="validationTextarea" class="form-label">Seat</label>
-                    <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Insert your seat number" name="NumPosto" required></textarea>
-                    
-                </div>
-                <div class="col-md-4 mb-4">
-                    <label for="validationTextarea" class="form-label">Destination</label>
-                    <input type="text" class="form-control is-invalid" id="validationTextarea" placeholder="Required destiantion" name="Destin" required></textarea>
-                    
-                    <div id="infoSeat" class="form-text">We will never share your data</div>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                
-            </form>
-        </div>
+    <p style="font-size: 25px; color: rgb(63, 124, 236); margin: 20px;" class="mb-5">{{Saluto}}{{nome}}</p>
+    <div class="container" style="width: 500px; height: 200px; position: absolute; top: 57%; left: 41%; margin-top: -100px; margin-left: -100px;">
+        
+        <h2 style="text-align: center;">Now you can select 3 films from the list</h2>
+        <br><br>
+        <p class="text-center"><a href="{{url_for('film')}}" class="btn btn-primary btn-lg" role="button">Go to the list</a></p>
     </div>
-    
   </body>
 </html>

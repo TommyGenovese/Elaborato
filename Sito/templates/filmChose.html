@@ -28,52 +28,69 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link" style="font-size: 30px;" aria-current="page" href="#">Flight</a>
-                  <a class="nav-link active" style="font-size: 30px;" href="" onclick="RegBefFilm()">Films</a>
-                  <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefMusic()">Music</a>
-                  <a class="nav-link" style="font-size: 30px;" aria-current="page" href="#">Login</a>
+                  <a class="nav-link" style="font-size: 30px;">Flight</a>
+                  <a class="nav-link active" style="font-size: 30px;" href="">Films</a>
+                  <a class="nav-link" style="font-size: 30px;" onclick="RegBefMusic()">Music</a>
+                  <a class="nav-link" style="font-size: 30px;" onclick="RegBefLogin()">Login</a>
+                </div>
+                <script>
+                    function RegBefLogin(){
+                        alert("Attention!\nYou are already singed in");
+                    }
+                    function RegBefMusic(){
+                        alert("Attention!\nTo access the music category you must first register your ticket");
+                    }
+                </script>
                 </div>
                 
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="font-family:  Comic Sans;">
       <br><br> 
-      <h3>You can chose 3 films from this list:</h3>
-      <br>
-      <script>
-        var films=0;
-        var count=0;
-        filmini = new Array();
-        for(i=0; i<30; i++){
-          filmini[i] =0;
-        }
-      </script>
+      <h1 style="font-family: Microsoft Himalaya;">You can chose 3 films from this list:</h1>
+      <div class="container-fluid col-md-13">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col float-right" style>
+
+            <form class="d-flex" action>
+              <input class="form-control me-2" type="search" placeholder="Genere o regista" name="ricerca" aria-label="Search">
+              <button class="btn btn-outline-primary" style="border-width: 3px; border-radius: 10px;" type="submit">🔎</button>
+            </form>
+          </div>
+        </div>
+      </div>
       <form>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           {% for i in films%}
             <div class="accordion-item">
               <h2 class="accordion-header" id="flush-headingOne">
                 <button class="accordion-button collapsed" id="title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{i}}" aria-expanded="false" aria-controls="flush-collapse{{i}}">
-                  <b>{{films[i][1]}}</b>
+                  <b>{{i+1}}. {{films[i][1]}}</b>
                 </button>
               </h2>
               <div id="flush-collapse{{i}}" class="accordion-collapse collapse">
                 <div class="accordion-body">
-                  <b>Regista:</b> {{films[i][3]}}<br>
-                  <b>Data d'uscita:</b> {{films[i][6]}}<br>
-                  <b>Valutazione:</b> {{films[i][5]}}<br>
-                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="Selezionefilm()">
-                    <label class="form-check-label" for="exampleCheck1">Chose</label>
-                  </div>
+                  <!--<img src="../static/img/IDDC.png" style="height: 200px; width: 300px;">-->
+                  <b>Genere:</b> {{films[i][2]}}<br>
+                  <b>Regista:</b> {{films[i][4]}}<br>
+                  <b>Data d'uscita:</b> {{films[i][9]}}<br>
+                  <b>Ambientazione:</b> {{films[i][5]}}<br>
+                  <b>Valutazione:</b> {{films[i][7]}} <img src="../static/img/stella.png" style="width: 20px; height: 20px; margin-top: -5px;"><br>
+                  <b>Visualizzazioni:</b> {{films[i][6]}}<br>
+                  <b>Descrizione:</b> {{films[i][3]}}
                 </div>
               </div>
             </div>
           {% endfor %}
         </div>
-      <button type="submit" class="btn btn-primary">Done</button>
+        
+      <button type="submit" class="btn btn-outline-primary" style="color: blue; border-width: 3px; border-radius: 10px; font-size: 18px;"><b>Done</b></button>
     </form>
   </body>
 </html>

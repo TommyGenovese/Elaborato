@@ -13,21 +13,16 @@ app = Flask(__name__)
 #6: NumValut
 #7: Data
 #8: Path
+email="tommaso.genovese@itiscuneo.eu"
+pwd="5f4dcc3b5aa765d61d8327deb882cf99"
 
-@app.route("/")
-def home():
-    films={}
-    with sqlite3.connect("web.db") as conn:
-        cur= conn.cursor()
-        cur.execute("SELECT COUNT(*) FROM Film")
-        data = cur.fetchone()
-        for i in range(data[0]):
-            film=cur.execute(f"SELECT * FROM Film WHERE id ={i+1}").fetchone()
-            films[i]=film
-            print(f"\n{films[i]}")
-    return render_template("filmChose.html", films=films)
+with sqlite3.connect("web.db") as conn:
+    cur=conn.cursor()
+    query1=f"SELECT id FROM clienti WHERE Email = '{email}' AND Pwd = '{pwd}'"
+    cur.execute(query1)
+    conn.commit()
+    id=cur.fetchone()
+    print(id[0])
 
-if __name__ == "__main__":
-    app.run(host="127.0.0.1", debug=True)
 
     

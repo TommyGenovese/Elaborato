@@ -19,9 +19,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefFlight()">Flight</a>
-                    <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefFilm()">Films</a>
-                    <a class="nav-link" style="font-size: 30px;" href="" onclick="RegBefMusic()">Music</a>
+                    <a class="nav-link" style="font-size: 30px;" onclick="RegBefFlight()">Flight</a>
+                    <a class="nav-link" style="font-size: 30px;" onclick="RegBefFilm()">Films</a>
+                    <a class="nav-link" style="font-size: 30px;" onclick="RegBefMusic()">Music</a>
                     <a class="nav-link active" style="font-size: 30px;" href="">Login</a>
                 </div>
                 <script>
@@ -40,20 +40,26 @@
     </nav>
 
     <div class="container">
-        <br><br>
-        <div class="container-sm">
-            <form class="was-validated" method="POST">
-                <div class="col-md-5 mb-4">
+        <br><br><br><br>
+        <div class="container-sm" style="font-size: 25px;">
+            <form class="was-validated" method="POST" action="/">
+                <div class="col-md-4 mb-5">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" aria-describedby="emailHelp" class="form-control is-invalid" id="validationTextarea" placeholder="example@example.com" name="email" required>
                 </div>
-                <div class="col-md-5 mb-4">
+                <div class="col-md-4 mb-5">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control is-invalid" id="validationTextarea" placeholder="Create a password" name="pwd" required>
-                    <div id="infoSeat" class="form-text">We will never share your data</div>
+                    <div id="infoSeat" class="form-text" style="font-size: 18px;">We will never share your data</div>
                 </div>
-                <a href="{{url_for('seat')}}" class="btn btn-primary">Sing In/Up</a>
+                <!--HELP
+                    HELP
+                    HELP
+                    HELP-->
+                <button type="submit" class="btn btn-primary btn-lg">Sign In/Up</button>
+
             </form>
+            <!--<img src="../static/img/aereo1.png">-->
         </div>
     </div>
     
